@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace app2
         {
             InitializeComponent();
         }
+
+        string sqlCon = @"Data Source=LAB108PC12\SQLEXPRESS; Initial Catalog=LoginDB; Integrated Security=True;";
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             char[] arr = { '1', '~', '@' };
@@ -47,5 +50,31 @@ namespace app2
             }
         }
 
+        private void Insert_(object sender, RoutedEventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(sqlCon);
+
+            try
+            {
+                //open the conneciton to the db 
+                conn.Open();
+
+                //create the query 
+
+                string query = $"Insert into UserCredentials(Username,FirstName,LastName,Email,Password) values ('{txtUsername.Text}','{txtFirstname.Text}','{txtLastname.Text}','{txtEmail.Text}','{pswdBox.Password}')";
+                //establish the conn between the query and the db
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Success it works fine!");
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

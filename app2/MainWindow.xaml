@@ -23,5 +23,6 @@
         <TextBox x:Name="txtEmail" Grid.Row="4" Width="250" Height="20" Text="Email" BorderBrush="Olive"/>
         <PasswordBox x:Name="pswdBox" Grid.Row="5" Width="250" Height="20" BorderBrush="Olive"/>
         <Button Content="Sign Up" Grid.Row="6" Width="90" Height="20" BorderBrush="Olive" Click="Button_Click_1" />
+        <Button Content="Insert" Grid.Row="6" Width="90" Height="20" BorderBrush="Olive" Click="Insert_" Margin="510,21,200,21" />
     </Grid>
 </Window>
