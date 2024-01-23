@@ -108,7 +108,7 @@ namespace app2
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Success it works fine!");
+                MessageBox.Show("Success it works fine ig!");
 
             }
             catch (Exception ex)
